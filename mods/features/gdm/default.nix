@@ -3,15 +3,12 @@
   inputs,
   ...
 }: {
-  flake.nixosModules.sddm = {
+  flake.nixosModules.gdm = {
     pkgs,
     lib,
     ...
   }: {
   services.displayManager.gdm.enable = true;
-    # services.displayManager.sddm = {
-    #   enable = true;
-    # };
   };
 }
 

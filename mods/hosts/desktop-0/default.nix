@@ -8,10 +8,10 @@
       desktop
       desktop-0Configuration
       nvidiaDrivers
-      sddm
+      gdm  
       audio
-      #git 
-      #kitty
+      git 
+      kitty
       gaming
       misc
       gui

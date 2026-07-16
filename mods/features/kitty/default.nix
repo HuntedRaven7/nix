@@ -33,9 +33,6 @@
           background_opacity = 0.90;
           confirm_os_window_close = 0;
           enable_audio_bell = false;
-          cursor_trail = 1;
-          cursor_trail_start_threshold = 1;
-          cursor_trail_color = "#cba6f7";
           cursor_shape = "beam";
           allow_remote_control = true;
         };
