@@ -1,18 +1,18 @@
-{
+ {
+  self,
   inputs,
-  moduleWithSystem,
   ...
 }: {
-  flake.nixosModules.bash = moduleWithSystem ({
+  flake.nixosModules.bash = {
     pkgs,
-    self',
+    lib,
     ...
   }: {
 programs.bash = {
     shellAliases = {
       ll = "ls -la";
      };
-  };
+   };
 programs.bash.interactiveShellInit = ''
   export PATH="$PATH:$HOME/.cargo/bin"
   eval "$(starship init bash)"
@@ -20,4 +20,5 @@ programs.bash.interactiveShellInit = ''
   programs.starship = {
     enable = true;
   };
+ };
 }
