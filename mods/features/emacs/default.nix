@@ -1,6 +1,7 @@
 {
   self,
   inputs,
+  pkgs,
   ...
 }: {
   flake.nixosModules.emacs = {
