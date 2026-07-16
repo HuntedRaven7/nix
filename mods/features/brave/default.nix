@@ -1,13 +1,15 @@
 {
+  self,
   inputs,
-  moduleWithSystem,
   ...
 }: {
-  flake.nixosModules.brave = moduleWithSystem (
-    {self'}: {
-     environment.systemPackages = with pkgs; [
-	brave
-     ];
-    }
-  );
+  flake.nixosModules.brave = {
+    pkgs,
+    lib,
+    ...
+  }: {
+    environment.systemPackages = with pkgs; [
+     brave
+    ];
+   };
 }
