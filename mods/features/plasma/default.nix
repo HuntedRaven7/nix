@@ -1,0 +1,16 @@
+{
+  self,
+  inputs,
+  ...
+}: {
+  flake.nixosModules.plasma = {
+    pkgs,
+    lib,
+    ...
+  }: {
+  services = {
+    desktopManager.plasma6.enable = true;
+    displayManager.plasma-login-manager.enable = true;
+    };
+  };
+}

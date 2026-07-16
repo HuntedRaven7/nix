@@ -8,8 +8,8 @@
       desktop
       desktop-0Configuration
       nvidiaDrivers
-      gdm  
       audio
+      plasma
       git 
       flatpak
       kitty
