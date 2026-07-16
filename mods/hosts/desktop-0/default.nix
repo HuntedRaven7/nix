@@ -17,6 +17,7 @@
       misc
       gui
       brave
+      emacs
     ];
   };
 }
