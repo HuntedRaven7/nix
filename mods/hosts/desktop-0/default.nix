@@ -9,7 +9,6 @@
       desktop-0Configuration
       nvidiaDrivers
       audio
-      plasma
       security
       git 
       # flatpak
