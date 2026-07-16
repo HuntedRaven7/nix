@@ -10,6 +10,7 @@
   }: let
     modules = with self.nixosModules; [
       user-desktop
+      bootloader-desktop
       nix-desktop
       hardware-desktop
       locale-desktop
