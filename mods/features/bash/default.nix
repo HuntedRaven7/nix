@@ -9,6 +9,7 @@
     ...
   }: {
 programs.bash = {
+    completion.enable = true;
     shellAliases = {
       ll = "ls -la";
      };

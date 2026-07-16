@@ -12,6 +12,8 @@
      rofi
      kitty
      git
+     neovim
+     discord
     ];
    };
 }
