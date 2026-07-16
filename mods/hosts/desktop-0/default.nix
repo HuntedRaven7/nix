@@ -11,7 +11,7 @@
       audio
       plasma
       git 
-      flatpak
+      # flatpak
       kitty
       gaming
       misc
