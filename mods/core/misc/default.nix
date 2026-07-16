@@ -13,6 +13,8 @@
      impression
      kitty
      mako
+     awww
+     waypaper
      fastfetch
      git
      neovim
