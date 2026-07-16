@@ -1,18 +1,19 @@
 {
-  moduleWithSystem,
   self,
   inputs,
   ...
 }: {
-  flake.nixosModules.gui = moduleWithSystem ({
-    self',
+  flake.nixosModules.gui = {
     pkgs,
-    inputs',
+    lib,
     ...
   }: {
-  programs.hyprland = {
-    enable = true;
-    withUWSM = true; 
-    xwayland.enable = true; 
+   programs.hyprland = {
+      enable = true;
+      withUWSM = true; 
+      xwayland.enable = true; 
+     };
+    };
   };
- })
+}
+
