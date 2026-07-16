@@ -11,6 +11,7 @@
       gdm  
       audio
       git 
+      flatpak
       kitty
       gaming
       misc

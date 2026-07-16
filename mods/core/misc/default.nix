@@ -14,6 +14,7 @@
      git
      neovim
      discord
+     waybar
     ];
    };
 }
