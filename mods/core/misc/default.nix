@@ -8,6 +8,7 @@
     lib,
     ...
   }: {
+    services.flatpak.enable = true;
     environment.systemPackages = with pkgs; [
      rofi
      impression
