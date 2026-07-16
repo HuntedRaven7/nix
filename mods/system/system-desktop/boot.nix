@@ -17,7 +17,7 @@
         };
         grub = {
           efiSupport = true;
-          theme = pkgs.catppuccin-grub;
+	  device = "nodev";
         };
       };
       initrd.luks.devices."luks-302da0e2-8ee5-4b35-a88b-ae094d3904ba".device = "/dev/disk/by-uuid/302da0e2-8ee5-4b35-a88b-ae094d3904ba";
