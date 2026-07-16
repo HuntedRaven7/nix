@@ -8,8 +8,12 @@
       desktop
       desktop-0Configuration
       nvidiaDrivers
+      sddm
       audio
+      git 
+     # kitty
       gaming
+      misc
       gui
       brave
     ];
