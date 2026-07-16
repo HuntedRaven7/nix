@@ -10,8 +10,8 @@
       nvidiaDrivers
       sddm
       audio
-      git 
-     # kitty
+      #git 
+      #kitty
       gaming
       misc
       gui
