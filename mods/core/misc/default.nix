@@ -12,6 +12,7 @@
      rofi
      impression
      kitty
+     mako
      fastfetch
      git
      neovim

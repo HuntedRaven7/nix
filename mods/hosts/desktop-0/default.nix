@@ -10,6 +10,7 @@
       nvidiaDrivers
       audio
       plasma
+      security
       git 
       # flatpak
       kitty
@@ -17,7 +18,7 @@
       misc
       gui
       brave
-      emacs
+      # emacs
     ];
   };
 }
