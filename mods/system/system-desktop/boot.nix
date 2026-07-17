@@ -10,7 +10,7 @@
     ...
   }: {
     boot = {
-      initrd.luks.devices."luks-14a1590a-2a28-4c54-9028-64d5f81e6493".device = "/dev/disk/by-uuid/14a1590a-2a28-4c54-9028-64d5f81e6493";
+      initrd.luks.devices."luks-bccb1834-c5b2-44a3-99e7-44b7ff84bd30".device = "/dev/disk/by-uuid/bccb1834-c5b2-44a3-99e7-44b7ff84bd30";
       loader = {
         systemd-boot.enable = true;
         timeout = 5;
