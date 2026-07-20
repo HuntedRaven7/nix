@@ -11,7 +11,7 @@
     };
   };
 
-  outputs = inputs@{self, nixpkgs, nixpkgs-unstable, flake-parts, home-manager, ...}:
+  outputs = inputs@{self, nixpkgs, nixpkgs-unstable, nix-flatpak, flake-parts, home-manager, ...}:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "x86_64-linux"
