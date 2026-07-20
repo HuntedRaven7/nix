@@ -1,8 +1,8 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, unstable, ... }:
 
 {
   users.users.edward.packages = with pkgs; [
-    pkgs-unstable.kitty
+    unstable.kitty
     emacs
   ];
 }
