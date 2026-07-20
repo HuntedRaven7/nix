@@ -3,93 +3,51 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nix-flatpak, ... }:
+    let
+      system = "x86_64-linux";
 
-  outputs = inputs@{self, nixpkgs, nixpkgs-unstable, nix-flatpak, flake-parts, home-manager, ...}:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
+      mkHost = hostname:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
 
-      flake =
-        let
-          mkHost =
+          modules = [
+            # Global configuration for all machines
+            ./core/default.nix
+
+            # Global Hardware Conf
+            /etc/nixos/hardware-configuration.nix
+
+            # Host-specific configuration
+            ./hosts/${hostname}/default.nix
+
+            # Home Manager integration
+            home-manager.nixosModules.home-manager
+            
+            # Nix Flatpak Setup
+            nix-flatpak.nixosModules.nix-flatpak
+
             {
-              hostname,
-              system,
-            }:
-            nixpkgs.lib.nixosSystem {
-              inherit system;
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
 
-              specialArgs = { inherit inputs self; };
-
-              modules = [
-                ./hosts/${hostname}
-                ./core
-                nix-flatpak.nixosModules.nix-flatpak
-                home-manager.nixosModules.home-manager
-
-                {
-                  home-manager = {
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-
-                    extraSpecialArgs = {
-                      inherit inputs self;
-                    };
-
-                    users.edward = import /etc/nixos/hardware-configuration.nix;
-                  };
-                }
-              ];
-            };
-
-          mkHome =
-            {
-              username,
-              system,
-            }:
-            home-manager.lib.homeManagerConfiguration {
-              pkgs = import nixpkgs {
-                inherit system;
+                #users.yourUsername = import ./home-manager/default.nix;
               };
-
-              extraSpecialArgs = {
-                inherit inputs self;
-              };
-
-              modules = [
-                ./hosts/home/${username}.nix
-              ];
-            };
-        in
-        {
-          nixosConfigurations = {
-            desktop-0 = mkHost {
-              hostname = "desktop-0";
-              system = "x86_64-linux";
-            };
-
-            laptop = mkHost {
-              hostname = "homelab-0";
-              system = "x86_64-linux";
-            };
-          };
-          homeConfigurations = {
-            "edward@desktop-0" = mkHome {
-              username = "edward";
-              system = "x86_64-linux";
-            };
-          };
+            }
+          ];
         };
+    in
+    {
+      nixosConfigurations = {
+        laptop = mkHost "homelab-0";
+        desktop = mkHost "desktop-0";
+      };
     };
 }

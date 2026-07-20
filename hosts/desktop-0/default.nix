@@ -3,11 +3,15 @@
 {
   imports = [
     ./audio.nix
-    ./drivers
-    ./gui
+    ./drivers/nvidia.nix
+    ./gui/gnome.nix
     ./kernel.nix
     ./network.nix
-    ./pkg
+    ./pkg/browsers.nix
+    ./pkg/dev-cli.nix
+    ./pkg/dev-gui.nix
+    ./pkg/flatpak.nix
+    ./pkg/gaming.nix
     ./user.nix
   ];
 }
