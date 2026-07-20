@@ -74,7 +74,7 @@
         in
         {
           nixosConfigurations = {
-            desktop = mkHost {
+            desktop-0 = mkHost {
               hostname = "desktop-0";
               system = "x86_64-linux";
             };
