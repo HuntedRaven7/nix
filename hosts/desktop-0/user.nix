@@ -8,4 +8,5 @@
     description = "Edward";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
   };
+  system.stateVersion = "26.05"; 
 }
